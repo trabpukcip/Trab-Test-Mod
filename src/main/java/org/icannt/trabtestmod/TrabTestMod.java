@@ -31,7 +31,7 @@ public class TrabTestMod {
     @Mod.Instance(MOD_ID)
     public static TrabTestMod instance;
     
-    public static final Logger LOGGER = LogManager.getLogger(MOD_NAME);
+    public static final Logger LOG = LogManager.getLogger(MOD_NAME);
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
@@ -40,8 +40,7 @@ public class TrabTestMod {
 
     @EventHandler
     public void init(FMLInitializationEvent event) {
-    	MekanismAPI.recipeHelper().addEnrichmentChamberRecipe(new ItemStack(Blocks.END_STONE, 1), new ItemStack(Items.BEEF, 4));
-    	//RecipeHandler.addEnrichmentChamberRecipe(new ItemStack(Blocks.END_STONE, 1), new ItemStack(Items.BEEF, 4));
+
     }
 
     @EventHandler
