@@ -1,0 +1,16 @@
+[
+{
+  "modid": "trabtestmod",
+  "name": "Trab Test Mod",
+  "description": "Trab Test Mod",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["ICannt Team"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
