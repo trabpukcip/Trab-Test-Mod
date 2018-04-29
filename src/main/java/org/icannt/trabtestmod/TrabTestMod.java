@@ -3,10 +3,10 @@ package org.icannt.trabtestmod;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import mekanism.api.MekanismAPI;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
-import net.minecraft.item.ItemStack;
+import com.google.common.base.Preconditions;
+
+import net.minecraftforge.fml.common.Loader;
+import net.minecraftforge.fml.common.LoaderState;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -21,7 +21,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 	name = TrabTestMod.MOD_NAME,
 	version = TrabTestMod.VERSION,
 	acceptedMinecraftVersions = "[1.12.2,1.13)",
-	dependencies = "required-after:forge@[14.23.2.2611,)")
+	dependencies = "required-after:forge@[14.23.2.2611,);before:mekanism")
 public class TrabTestMod {
 
     public static final String MOD_ID = "trabtestmod";
@@ -35,16 +35,31 @@ public class TrabTestMod {
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
-
+    	LOG.info("FML Event " + Loader.instance().getLoaderState());
+    	try {
+    		Preconditions.checkState(Loader.instance().getLoaderState().ordinal() < LoaderState.INITIALIZATION.ordinal(), "Recipes should be registered before Init. Try net.minecraftforge.event.RegistryEvent.Register<IRecipe>");
+    	} catch (Exception e1) {
+    		LOG.error("Exception thrown at FML Event " + Loader.instance().getLoaderState());
+    	}
     }
 
     @EventHandler
     public void init(FMLInitializationEvent event) {
-
+    	LOG.info("FML Event " + Loader.instance().getLoaderState());
+    	try {
+    		Preconditions.checkState(Loader.instance().getLoaderState().ordinal() < LoaderState.INITIALIZATION.ordinal(), "Recipes should be registered before Init. Try net.minecraftforge.event.RegistryEvent.Register<IRecipe>");
+    	} catch (Exception e1) {
+    		LOG.error("Exception thrown at FML Event " + Loader.instance().getLoaderState());
+    	}
     }
 
     @EventHandler
     public void postInit(FMLPostInitializationEvent event) {
-
+    	LOG.info("FML Event " + Loader.instance().getLoaderState());
+    	try {
+    		Preconditions.checkState(Loader.instance().getLoaderState().ordinal() < LoaderState.INITIALIZATION.ordinal(), "Recipes should be registered before Init. Try net.minecraftforge.event.RegistryEvent.Register<IRecipe>");
+    	} catch (Exception e1) {
+    		LOG.error("Exception thrown at FML Event " + Loader.instance().getLoaderState());
+    	}
     }
 }
