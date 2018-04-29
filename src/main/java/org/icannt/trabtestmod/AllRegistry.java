@@ -38,7 +38,7 @@ public class AllRegistry {
         	try {
         		Preconditions.checkState(Loader.instance().getLoaderState().ordinal() < LoaderState.INITIALIZATION.ordinal(), "Recipes should be registered before Init. Try net.minecraftforge.event.RegistryEvent.Register<IRecipe>");
         	} catch (Exception e1) {
-        		TrabTestMod.LOG.error("Exception thrown at registry event IRegistry, FML Event " + Loader.instance().getLoaderState());
+        		TrabTestMod.LOG.error("Exception thrown at registry event IRecipe, FML Event " + Loader.instance().getLoaderState());
         	}
         }
     	
