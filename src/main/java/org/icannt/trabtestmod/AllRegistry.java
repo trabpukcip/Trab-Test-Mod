@@ -2,9 +2,14 @@ package org.icannt.trabtestmod;
 
 import com.google.common.base.Preconditions;
 
+import mekanism.api.MekanismAPI;
+import mekanism.common.recipe.RecipeHandler;
 import net.minecraft.block.Block;
 import net.minecraft.enchantment.Enchantment;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.potion.Potion;
 import net.minecraft.util.SoundEvent;
@@ -34,6 +39,7 @@ public class AllRegistry {
     	@SubscribeEvent
         public static void registerIRecipe(final RegistryEvent.Register<IRecipe> event)
         {
+    		RecipeHandler.addEnrichmentChamberRecipe(new ItemStack(Blocks.END_STONE, 1), new ItemStack(Items.BEEF, 4));
     		logIt("IRecipe", Loader.instance().getLoaderState());
         	try {
         		Preconditions.checkState(Loader.instance().getLoaderState().ordinal() < LoaderState.INITIALIZATION.ordinal(), "Recipes should be registered before Init. Try net.minecraftforge.event.RegistryEvent.Register<IRecipe>");
@@ -82,6 +88,7 @@ public class AllRegistry {
         public static void registerVillagerProfession(final RegistryEvent.Register<VillagerProfession> event)
         {
     		logIt("VillagerProfession", Loader.instance().getLoaderState());
+    		MekanismAPI.recipeHelper().addEnrichmentChamberRecipe(new ItemStack(Blocks.END_STONE, 1), new ItemStack(Items.BEEF, 4));
         }
 
     	@SubscribeEvent
